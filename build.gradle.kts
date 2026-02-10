@@ -46,7 +46,7 @@ tasks {
         archiveFileName.set("XpUltimate-${version}-shaded.jar")
         minimize()
         relocate("net.kyori", "me.noibecoded.xpultimate.libs.kyori")
-        relocate("mysql", "me.noibecoded.xpultimate.libs.mysql")
+        relocate("com.mysql", "me.noibecoded.xpultimate.libs.mysql")
     }
 
     build {
