@@ -1,8 +1,8 @@
-# XpBottles Permissions Configuration
-# Generated automatically by XpBottles
+# XpUltimate Permissions Configuration
+# Generated automatically by XpUltimate
 #
 # This file contains permission groups and user-specific permissions
-# for the XpBottles plugin. Modify this file to customize permissions
+# for the XpUltimate plugin. Modify this file to customize permissions
 # for different groups on your server.
 #
 # To use groups with permissions plugins (LuckPerms, PermissionsEx, etc.),
@@ -18,20 +18,38 @@ groups:
     permissions:
       - xpbottles.use
       - xpbottles.create
-      - xpbottles.deposit
-      - xpbottles.withdraw
-      - xpbottles.transfer
-      - xpbottles.balance
+      - xpbottles.gui
+      - xpbank.use
+      - xpbank.deposit
+      - xpbank.withdraw
+      - xpbank.balance
+      - xpbank.interest
 
   # VIP group - additional permissions
   vip:
     permissions:
       - xpbottles.*
+      - xpbank.*
+    inheritance:
+      - default
 
-  # Admin group - all permissions including reset
+  # Moderator group - includes reset
+  moderator:
+    permissions:
+      - xpbottles.*
+      - xpbank.*
+      - xpbank.reset
+    inheritance:
+      - vip
+
+  # Admin group - all permissions including reset.others
   admin:
     permissions:
       - xpbottles.*
+      - xpbank.*
+      - xpbank.reset.others
+    inheritance:
+      - moderator
 
 # ==============================
 # User-Specific Permissions
@@ -44,7 +62,7 @@ groups:
 #   playername:
 #     group: default
 #     permissions:
-#       - xpbottles.reset
+#       - xpbank.reset
 #
 #   adminname:
 #     group: admin
@@ -55,27 +73,35 @@ users:
   # username:
   #   group: default
   #   permissions:
-  #     - xpbottles.reset
+  #     - xpbank.reset
 
 # ==============================
 # Notes
 # ==============================
 #
-# Available permissions:
-#   xpbottles.use        - Use the /xpbottle command
+# XP Bottle permissions:
+#   xpbottles.use        - Use the /xpbottles command
 #   xpbottles.create    - Create XP bottles
-#   xpbottles.deposit   - Deposit XP to bank
-#   xpbottles.withdraw  - Withdraw XP from bank
-#   xpbottles.transfer  - Transfer XP to other players
-#   xpbottles.balance   - Check XP balance
-#   xpbottles.reset     - Reset own XP bank
-#   xpbottles.reset.others - Reset other players' XP bank
-#   xpbottles.*         - All permissions
+#   xpbottles.gui        - Open XP bottle crafting GUI
+#   xpbottles.*          - All XP bottle permissions
+#
+# XP Bank permissions:
+#   xpbank.use          - Use the /xpbank command
+#   xpbank.deposit      - Deposit XP to bank
+#   xpbank.withdraw     - Withdraw XP from bank
+#   xpbank.transfer     - Transfer XP to other players
+#   xpbank.balance      - Check XP balance
+#   xpbank.interest     - View interest rates
+#   xpbank.reset        - Reset own XP bank
+#   xpbank.reset.others - Reset other players' XP bank
+#   xpbank.*            - All XP bank permissions
 #
 # Commands:
-#   /xpbottle create <amount>  - Create XP bottle
-#   /xpbottle deposit <amount> - Deposit XP to bank
-#   /xpbottle withdraw <amount> - Withdraw XP from bank
-#   /xpbottle transfer <player> <amount> - Transfer XP to player
-#   /xpbottle balance - Check balances
-#   /xpbottle reset [player] - Reset XP (admin)
+#   /xpbottles create <amount>  - Create XP bottle
+#   /xpbottles gui              - Open XP bottle crafting GUI
+#   /xpbank deposit <amount>    - Deposit XP to bank
+#   /xpbank withdraw <amount>   - Withdraw XP from bank
+#   /xpbank transfer <player> <amount> - Transfer XP to player
+#   /xpbank balance            - Check balances
+#   /xpbank interest           - View interest rates
+#   /xpbank reset [player]     - Reset XP (admin)

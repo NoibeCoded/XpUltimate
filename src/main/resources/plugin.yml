@@ -1,9 +1,9 @@
-name: XpBottles
+name: XpUltimate
 version: ${version}
-description: Store XP in bottles and transfer between players
+description: Advanced XP storage system with bottles and bank with interest
 author: NoibeCoded
 
-main: me.noibecoded.xpbottles.XpBottles
+main: me.noibecoded.xpultimate.XpUltimate
 
 api-version: 1.19
 
@@ -12,44 +12,66 @@ softdepend:
   - PlaceholderAPI
 
 commands:
-  xpbottle:
-    description: XP Bottle command
-    usage: /xpbottle [create|deposit|withdraw|transfer|balance]
+  xpbottles:
+    description: XP Bottle commands
+    usage: /xpbottles [create|gui|help]
     permission: xpbottles.use
-    permission-message: You don't have permission to use this command.
+    permission-message: You don't have permission to use XP Bottle commands.
+  xpbank:
+    description: XP Bank commands
+    usage: /xpbank [deposit|withdraw|transfer|balance|interest|reset|help]
+    permission: xpbank.use
+    permission-message: You don't have permission to use XP Bank commands.
 
 permissions:
   xpbottles.*:
-    description: All permissions
+    description: All XP Bottle permissions
     children:
+      xpbottles.use: true
       xpbottles.create: true
-      xpbottles.deposit: true
-      xpbottles.withdraw: true
-      xpbottles.transfer: true
-      xpbottles.balance: true
-      xpbottles.reset: true
-      xpbottles.reset.others: true
+      xpbottles.gui: true
   xpbottles.use:
     description: Use XP bottle commands
     default: true
   xpbottles.create:
     description: Create XP bottles
     default: true
-  xpbottles.deposit:
+  xpbottles.gui:
+    description: Open XP bottle crafting GUI
+    default: true
+
+  xpbank.*:
+    description: All XP Bank permissions
+    children:
+      xpbank.use: true
+      xpbank.deposit: true
+      xpbank.withdraw: true
+      xpbank.transfer: true
+      xpbank.balance: true
+      xpbank.interest: true
+      xpbank.reset: true
+      xpbank.reset.others: true
+  xpbank.use:
+    description: Use XP bank commands
+    default: true
+  xpbank.deposit:
     description: Deposit XP to bank
     default: true
-  xpbottles.withdraw:
+  xpbank.withdraw:
     description: Withdraw XP from bank
     default: true
-  xpbottles.transfer:
+  xpbank.transfer:
     description: Transfer XP to other players
     default: true
-  xpbottles.balance:
+  xpbank.balance:
     description: Check XP balance
     default: true
-  xpbottles.reset:
+  xpbank.interest:
+    description: View interest rates
+    default: true
+  xpbank.reset:
     description: Reset own XP bank
     default: op
-  xpbottles.reset.others:
+  xpbank.reset.others:
     description: Reset other players' XP bank
     default: op

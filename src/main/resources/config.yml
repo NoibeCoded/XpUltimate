@@ -1,0 +1,41 @@
+# XpUltimate Configuration File
+# Plugin version: ${version}
+
+# Database Configuration
+database:
+  # Database type: sqlite or mysql
+  type: sqlite
+  # MySQL settings (only used if type is mysql)
+  host: localhost
+  port: 3306
+  name: xpultimate
+  user: root
+  password: ""
+
+# Bank Configuration
+bank:
+  interest:
+    # Enable interest system
+    enabled: true
+    # Interest interval in seconds (default: 1 hour)
+    interval: 3600
+    # Interest rate when player is online (percentage)
+    online: 0.2
+    # Interest rate when player is offline (percentage)
+    offline: 0.05
+
+# Bottle Configuration
+bottles:
+  # Maximum XP that can be stored in a single bottle
+  max-xp-per-bottle: 10000
+
+# Crafting Table Configuration
+crafting:
+  # Enable custom XP bottle crafting table
+  enabled: true
+  # Name displayed for the crafting table
+  table-name: "&6XP Bottle Crafting Table"
+
+# Messages Configuration
+messages:
+  prefix: "&6[XpUltimate] &r"

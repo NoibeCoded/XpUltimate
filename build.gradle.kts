@@ -25,6 +25,8 @@ dependencies {
     compileOnly("net.kyori:adventure-api:4.18.0")
     compileOnly("net.kyori:adventure-text-minimessage:4.18.0")
 
+    implementation("mysql:mysql-connector-java:8.0.33")
+
     annotationProcessor("org.spigotmc:spigot-api:1.21.3-R0.1-SNAPSHOT")
 }
 
@@ -37,13 +39,14 @@ tasks {
     }
 
     jar {
-        archiveFileName.set("XpBottles-${version}.jar")
+        archiveFileName.set("XpUltimate-${version}.jar")
     }
 
     shadowJar {
-        archiveFileName.set("XpBottles-${version}-shaded.jar")
+        archiveFileName.set("XpUltimate-${version}-shaded.jar")
         minimize()
-        relocate("net.kyori", "me.noibecoded.xpbottles.libs.kyori")
+        relocate("net.kyori", "me.noibecoded.xpultimate.libs.kyori")
+        relocate("mysql", "me.noibecoded.xpultimate.libs.mysql")
     }
 
     build {
